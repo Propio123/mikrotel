@@ -60,3 +60,29 @@
   transform: scale(1.3);
   background: #20bd5a;
 }
+/* Ajustes para pantallas pequeñas (Móviles) */
+@media (max-width: 768px) {
+  .social-sidebar-container {
+    right: -70px; /* Lo empujamos un poco más hacia afuera */
+  }
+
+  .arc-sidebar {
+    width: 180px; /* Reducimos el ancho del arco */
+    height: 280px; /* Reducimos la altura */
+    gap: 15px; /* Menos espacio entre botones */
+    padding-left: 40px;
+    border-width: 3px;
+  }
+
+  .social-btn {
+    width: 40px; /* Iconos más pequeños */
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .whatsapp {
+    width: 55px; /* WhatsApp más pequeño pero sigue destacando */
+    height: 55px;
+    font-size: 25px;
+  }
+}
