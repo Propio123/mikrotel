@@ -1,0 +1,108 @@
+<section class="max-w-3xl mx-auto py-12 px-6">
+  <div class="mb-8 border-b border-gray-200 pb-6">
+    <h1 class="text-3xl font-bold text-gray-900 mb-2">Encuesta de Calidad del Servicio (SAI)</h1>
+    <p class="text-gray-600">
+      Ayúdenos a mejorar la conectividad en Ibarra. Su opinión es fundamental para cumplir con los estándares de calidad de <strong>ARCOTEL</strong>.
+    </p>
+  </div>
+
+  <form [formGroup]="encuestaForm" (ngSubmit)="enviar()" class="space-y-8">
+    
+<div class="bg-blue-50 p-6 rounded-xl border border-blue-200 mb-8">
+  <h3 class="font-bold text-lg mb-4 text-blue-800">Datos de Registro (Interno)</h3>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Nº de Abonado / Contrato</label>
+      <input type="text" formControlName="numAbonado" class="w-full border p-2 rounded mt-1">
+    </div>
+    
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Provincia / Ciudad</label>
+      <input type="text" formControlName="provinciaCiudad" class="w-full border p-2 rounded mt-1">
+    </div>
+    
+    <div>
+      <label class="block text-sm font-medium text-gray-700">Tecnología de conexión</label>
+      <select formControlName="tecnologia" class="w-full border p-2 rounded mt-1">
+        <option value="FTTH">Fibra Óptica (FTTH)</option>
+        <option value="Inalambrico">Inalámbrico</option>
+        <option value="Otro">Otro</option>
+      </select>
+    </div>
+
+    <div>
+      <label class="block text-sm font-bold text-gray-700 mb-2">Período de medición</label>
+      <div class="flex gap-4">
+        <div class="flex-1">
+          <label class="text-xs text-gray-500">Trimestre</label>
+          <input type="number" formControlName="trimestre" min="1" max="4" class="w-full border p-2 rounded mt-1">
+        </div>
+        <div class="flex-1">
+          <label class="text-xs text-gray-500">Año</label>
+          <input type="number" formControlName="anio" min="2020" class="w-full border p-2 rounded mt-1">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+    <!-- I. Información General -->
+    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+      <h3 class="font-bold text-lg mb-4 text-blue-700">I. Información General</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input type="text" formControlName="ciudad" placeholder="Ciudad / Provincia" class="border p-2 rounded w-full">
+        <select formControlName="tipoPlan" class="border p-2 rounded w-full">
+          <option value="" disabled>Seleccione tipo de plan</option>
+          <option value="Residencial">Residencial</option>
+          <option value="Corporativo">Corporativo</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- II. Calidad Técnica del Servicio -->
+    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+      <h3 class="font-bold text-lg mb-4 text-blue-700">II. Calidad Técnica del Servicio</h3>
+      <div class="space-y-6">
+        <div *ngFor="let item of ['velocidad', 'continuidad', 'disponibilidad', 'latencia']">
+          <label class="block capitalize font-medium mb-1">{{item}}</label>
+          <input type="range" [formControlName]="item" min="1" max="5" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+          <div class="flex justify-between text-xs text-gray-500 px-1">
+            <span>1 (Insatisfecho)</span><span>5 (Muy Satisfecho)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- III. Atención al Cliente -->
+    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+      <h3 class="font-bold text-lg mb-4 text-blue-700">III. Atención al Cliente</h3>
+      <div class="space-y-6">
+        <div *ngFor="let item of ['canales', 'tiempoRespuesta', 'efectividad', 'facturacion']">
+          <label class="block capitalize font-medium mb-1">{{item.replace('Respuesta', ' Respuesta')}}</label>
+          <input type="range" [formControlName]="item" min="1" max="5" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer">
+        </div>
+      </div>
+    </div>
+
+    <!-- IV. Percepción Global -->
+    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200">
+      <h3 class="font-bold text-lg mb-4 text-blue-700">IV. Percepción Global</h3>
+      <div class="space-y-4">
+        <select formControlName="relacionPrecioCalidad" class="w-full border p-2 rounded">
+          <option value="" disabled>¿Cómo califica la relación calidad-precio?</option>
+          <option value="Excelente">Excelente</option>
+          <option value="Adecuada">Adecuada</option>
+          <option value="Deficiente">Deficiente</option>
+        </select>
+        <textarea formControlName="comentarios" placeholder="Comentarios o sugerencias adicionales..." class="w-full border p-2 rounded h-24"></textarea>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="encuestaForm.invalid" 
+            class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 disabled:bg-gray-400">
+      Enviar Evaluación
+    </button>
+  </form>
+</section>

@@ -1,0 +1,7 @@
+/* Asegúrate de que el contenedor pueda crecer */
+.encuesta-container {
+  min-height: 100vh;
+  height: auto; /* IMPORTANTE: permite que crezca según el contenido */
+  overflow-y: auto; /* Permite scroll vertical */
+  padding-bottom: 50px; /* Espacio para que el último botón no quede pegado */
+}

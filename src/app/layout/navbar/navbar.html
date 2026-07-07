@@ -1,18 +1,26 @@
-<nav class="bg-white py-4 px-6 flex justify-between items-center shadow-sm relative">
-  <div class="h-10">
+<nav class="bg-white py-4 px-6 flex justify-between items-center shadow-sm relative z-50">
+  <div class="h-10 cursor-pointer" [routerLink]="['/']">
     <img src="assets/logo.png" alt="Mikrotel" class="h-full w-auto">
   </div>
 
-  <button (click)="isMenuOpen = !isMenuOpen" class="md:hidden text-2xl text-gray-700">
-    <i class="fa-solid fa-bars"></i>
+  <button (click)="isMenuOpen = !isMenuOpen" class="md:hidden text-2xl text-gray-700 focus:outline-none">
+    <i class="fa-solid" [ngClass]="isMenuOpen ? 'fa-times' : 'fa-bars'"></i>
   </button>
   
   <ul [class.hidden]="!isMenuOpen" 
-      class="absolute top-full left-0 w-full bg-white md:static md:flex md:w-auto md:bg-transparent flex flex-col md:flex-row gap-6 p-6 md:p-0 shadow-lg md:shadow-none z-50">
-    <li class="text-gray-700 hover:text-blue-600 font-semibold cursor-pointer transition-colors">Inicio</li>
-    <li class="text-gray-700 hover:text-blue-600 font-semibold cursor-pointer transition-colors">Fibra Óptica</li>
-    <li class="text-gray-700 hover:text-blue-600 font-semibold cursor-pointer transition-colors">Planes</li>
-    <li class="text-gray-700 hover:text-blue-600 font-semibold cursor-pointer transition-colors">Contacto</li>
+      class="absolute top-full left-0 w-full bg-white md:static md:flex md:w-auto md:bg-transparent flex flex-col md:flex-row gap-6 p-6 md:p-0 shadow-lg md:shadow-none transition-all duration-300">
+    
+    <li class="text-gray-700 hover:text-blue-600 font-semibold cursor-pointer transition-colors" 
+        [routerLink]="['/']" (click)="isMenuOpen = false">Inicio</li>
+    
+    <li class="text-gray-700 hover:text-blue-600 font-semibold cursor-pointer transition-colors" 
+        [routerLink]="['/']" fragment="planes" (click)="isMenuOpen = false">Planes</li>
+    
+    <li class="text-gray-700 hover:text-blue-600 font-semibold cursor-pointer transition-colors" 
+        [routerLink]="['/about']" (click)="isMenuOpen = false">Nosotros</li>
+    
+    <li class="text-gray-700 hover:text-blue-600 font-semibold cursor-pointer transition-colors" 
+        [routerLink]="['/encuesta']" (click)="isMenuOpen = false">Encuesta</li>
   </ul>
 
   <button class="hidden md:block bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full font-medium transition-all shadow-md">
