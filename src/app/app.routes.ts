@@ -5,7 +5,7 @@ import { Home } from './components/home/home';
 
 export const routes: Routes = [
     { path: '', component: Home }, // Asegúrate de tener esto
-  { path: 'encuesta', component: EncuestaComponent },
+  { path: 'encuesta/:isp', component: EncuestaComponent },
   { path: 'about', component: About },
   { path: '**', redirectTo: '' } // Redirección de seguridad
 ];

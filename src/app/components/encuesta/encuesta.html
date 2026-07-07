@@ -6,7 +6,7 @@
     </p>
   </div>
 
-  <form [formGroup]="encuestaForm" (ngSubmit)="enviar()" class="space-y-8">
+  <form [formGroup]="encuestaForm" (ngSubmit)="enviar()" *ngIf="encuestaForm" class="space-y-8">
     
 <div class="bg-blue-50 p-6 rounded-xl border border-blue-200 mb-8">
   <h3 class="font-bold text-lg mb-4 text-blue-800">Datos de Registro (Interno)</h3>
@@ -16,11 +16,6 @@
     <div>
       <label class="block text-sm font-medium text-gray-700">Nº de Abonado / Contrato</label>
       <input type="text" formControlName="numAbonado" class="w-full border p-2 rounded mt-1">
-    </div>
-    
-    <div>
-      <label class="block text-sm font-medium text-gray-700">Provincia / Ciudad</label>
-      <input type="text" formControlName="provinciaCiudad" class="w-full border p-2 rounded mt-1">
     </div>
     
     <div>
@@ -96,13 +91,34 @@
           <option value="Adecuada">Adecuada</option>
           <option value="Deficiente">Deficiente</option>
         </select>
+        <select formControlName="recomendacion" class="w-full border p-2 rounded mt-2">
+  <option value="" disabled selected>¿Recomendaría nuestro servicio?</option>
+  <option value="Si">Sí</option>
+  <option value="No">No</option>
+</select>
         <textarea formControlName="comentarios" placeholder="Comentarios o sugerencias adicionales..." class="w-full border p-2 rounded h-24"></textarea>
       </div>
     </div>
 
-    <button type="submit" [disabled]="encuestaForm.invalid" 
-            class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold hover:bg-blue-700 disabled:bg-gray-400">
-      Enviar Evaluación
-    </button>
+    <div class="space-y-2">
+      <pre class="bg-gray-100 p-2 text-xs mt-4">
+  Estado del formulario: {{ encuestaForm.status }}
+  ¿Es válido?: {{ encuestaForm.valid }}
+</pre>
+ <button type="submit" 
+        [disabled]="encuestaForm.invalid || estaEnviando"
+        class="w-full bg-blue-600 text-white py-3 rounded-lg font-bold">
+  {{ estaEnviando ? 'Enviando información...' : 'Enviar Evaluación' }}
+</button>
+  
+ <div class="mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded text-xs">
+  <p class="font-bold">Formulario Inválido (Campos faltantes):</p>
+  <pre>{{ encuestaForm.errors | json }}</pre>
+  <p>Campos con error:</p>
+  <ul>
+    <li *ngFor="let control of getInvalidControls()">{{ control }}</li>
+  </ul>
+</div>
+</div>
   </form>
 </section>
