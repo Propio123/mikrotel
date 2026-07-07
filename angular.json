@@ -6,6 +6,7 @@
     "analytics": "cc1aa86a-b8d3-4add-aded-5e23451c1f72"
   },
   "newProjectRoot": "projects",
+  
   "projects": {
     "mikrotel": {
       "projectType": "application",
@@ -69,6 +70,7 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
+              
               "buildTarget": "mikrotel:build:production"
             },
             "development": {

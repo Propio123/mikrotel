@@ -6,7 +6,7 @@ export class SupabaseService {
   private supabase: SupabaseClient;
 
   constructor() {
-    this.supabase = createClient('https://oadglyrlthxzyadipzar.supabase.co', 'sb_publishable_yNu56FZPXu127UtjWN8cOw_lmMAcj4P');
+    this.supabase = createClient('supabaseUrl', 'supabaseKey');
   }
 
  async guardarEncuesta(datos: any) {

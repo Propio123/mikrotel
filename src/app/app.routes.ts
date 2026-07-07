@@ -5,7 +5,18 @@ import { Home } from './components/home/home';
 
 export const routes: Routes = [
     { path: '', component: Home }, // Asegúrate de tener esto
-  { path: 'encuesta/:isp', component: EncuestaComponent },
+  {
+    path: 'encuesta/:isp',
+    providers: [
+      {
+        provide: 'getPrerenderParams',
+        useValue: () => [
+          { isp: 'mikrotel' },
+          { isp: 'fibra-ibarra' }
+        ]
+      }
+    ]
+  },
   { path: 'about', component: About },
   { path: '**', redirectTo: '' } // Redirección de seguridad
 ];
