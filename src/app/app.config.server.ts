@@ -1,9 +1,12 @@
-// En src/app/app.routes.server.ts
-import { RenderMode, ServerRoute } from '@angular/ssr';
+import { mergeApplicationConfig, ApplicationConfig } from '@angular/core';
+import { provideServerRendering } from '@angular/platform-server';
+import { appConfig } from './app.config';
 
-export const serverRoutes: ServerRoute[] = [
-  {
-    path: 'encuesta/:isp',
-    renderMode: RenderMode.Client // Cambia esto de Prerender a Client
-  }
-];
+const serverConfig: ApplicationConfig = {
+  providers: [
+    provideServerRendering()
+  ]
+};
+
+// ESTA LÍNEA ES LA QUE TE FALTA Y CAUSA EL ERROR
+export const config = mergeApplicationConfig(appConfig, serverConfig);
