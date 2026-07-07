@@ -1,11 +1,9 @@
-import { mergeApplicationConfig, ApplicationConfig } from '@angular/core';
-import { provideServerRendering } from '@angular/ssr';
-import { appConfig } from './app.config';
+// En src/app/app.routes.server.ts
+import { RenderMode, ServerRoute } from '@angular/ssr';
 
-const serverConfig: ApplicationConfig = {
-  providers: [
-    provideServerRendering() // Eliminamos withRoutes(serverRoutes)
-  ]
-};
-
-export const config = mergeApplicationConfig(appConfig, serverConfig);
+export const serverRoutes: ServerRoute[] = [
+  {
+    path: 'encuesta/:isp',
+    renderMode: RenderMode.Client // Cambia esto de Prerender a Client
+  }
+];
