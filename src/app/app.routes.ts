@@ -5,10 +5,10 @@ import { Home } from './components/home/home';
 
 export const routes: Routes = [
     { path: '', component: Home }, // Asegúrate de tener esto
-  {
+ {
     path: 'encuesta/:isp',
-    
-    // ESTA LÍNEA ES LA CLAVE PARA VERCEL/SSR:
+    loadComponent: () => import('./components/encuesta/encuesta').then(m => m.EncuestaComponent),
+    // Esto desactiva el prerendering para esta ruta específicamente
     data: { renderMode: 'Client' }
   },
   { path: 'about', component: About },
