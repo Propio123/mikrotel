@@ -7,14 +7,9 @@ export const routes: Routes = [
     { path: '', component: Home }, // Asegúrate de tener esto
   {
     path: 'encuesta/:isp',
-    providers: [
-      {
-        provide: 'getPrerenderParams',
-        useValue: () => [
-          { isp: 'mikrotel' },
-        ]
-      }
-    ]
+    
+    // ESTA LÍNEA ES LA CLAVE PARA VERCEL/SSR:
+    data: { renderMode: 'Client' }
   },
   { path: 'about', component: About },
   { path: '**', redirectTo: '' } // Redirección de seguridad
