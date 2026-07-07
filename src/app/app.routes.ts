@@ -12,7 +12,6 @@ export const routes: Routes = [
         provide: 'getPrerenderParams',
         useValue: () => [
           { isp: 'mikrotel' },
-          { isp: 'fibra-ibarra' }
         ]
       }
     ]
