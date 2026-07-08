@@ -7,13 +7,13 @@ export class SupabaseService {
   private supabase: SupabaseClient;
 
  constructor() {
-    // Intentamos leer de window._env_ (inyectado por el script en index.html)
-    // Usamos el operador de coalescencia ?? para evitar errores
-    const url = (window as any)._env_?.SUPABASE_URL ?? '';
-    const key = (window as any)._env_?.SUPABASE_KEY ?? '';
+    // Ponemos los valores reales directamente aquí.
+    // Sustituye 'TU_URL_AQUI' y 'TU_KEY_AQUI' con tus datos de Supabase.
+    const url = 'https://oadglyrlthxzyadipzar.supabase.co';
+    const key = 'sb_publishable_aarULnR-cJarOl0Fbn4bmA_zk4agUma';
 
-    if (!url || url.includes('placeholder')) {
-      console.error('Error: Supabase no configurado. Verifica tu index.html o variables de entorno.');
+    if (!url || url.includes('TU_ID_PROYECTO')) {
+      throw new Error('Debes configurar tu URL y Key en el SupabaseService.');
     }
 
     this.supabase = createClient(url, key);
