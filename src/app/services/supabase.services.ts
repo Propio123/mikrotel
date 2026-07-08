@@ -4,22 +4,16 @@ import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class SupabaseService {
-  private supabase: SupabaseClient | undefined;
+  private supabase: SupabaseClient;
 
-  constructor() {
-    let url = (window as any)._env_?.SUPABASE_URL || environment.supabaseUrl;
-    const key = (window as any)._env_?.SUPABASE_KEY || environment.supabaseKey;
-
-    // --- CORRECCIÓN CRÍTICA ---
-    // Si la URL es solo "mikrotel", la convertimos en la URL válida
-    if (url && !url.startsWith('http')) {
-       url = `https://${url}.supabase.co`; 
-    }
-    // --------------------------
+ constructor() {
+    // Intentamos obtener las variables de window (inyectadas por Vercel)
+    // O de process.env si el build las sustituye
+    const url = (window as any)._env_?.SUPABASE_URL || process.env['SUPABASE_URL'];
+    const key = (window as any)._env_?.SUPABASE_KEY || process.env['SUPABASE_KEY'];
 
     if (!url || url.includes('placeholder')) {
-      console.error('Supabase no se pudo inicializar: URL inválida:', url);
-      return; 
+      throw new Error(`Supabase no se pudo inicializar: URL inválida: ${url}`);
     }
 
     this.supabase = createClient(url, key);
