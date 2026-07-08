@@ -7,7 +7,14 @@ export class SupabaseService {
   private supabase: SupabaseClient;
 
   constructor() {
-    this.supabase = createClient(environment.supabaseUrl, environment.supabaseKey);
+   const url = (window as any)._env_?.SUPABASE_URL || environment.supabaseUrl;
+    const key = (window as any)._env_?.SUPABASE_KEY || environment.supabaseKey;
+
+    if (!url || url.includes('placeholder')) {
+      console.error('ERROR: Supabase URL no configurada correctamente.');
+    }
+
+    this.supabase = createClient(url, key);
   }
 
  async guardarEncuesta(datos: any) {
