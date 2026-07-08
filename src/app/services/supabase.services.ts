@@ -7,19 +7,24 @@ export class SupabaseService {
   private supabase: SupabaseClient | undefined;
 
   constructor() {
-    // 1. Prioridad: Variables inyectadas por Vercel al navegador (window._env_)
-    // 2. Reserva: Archivo environment.ts
-    const url = (window as any)._env_?.SUPABASE_URL || environment.supabaseUrl;
+    let url = (window as any)._env_?.SUPABASE_URL || environment.supabaseUrl;
     const key = (window as any)._env_?.SUPABASE_KEY || environment.supabaseKey;
 
-    // Validación estricta
-    if (!url || url.includes('placeholder') || url === 'undefined') {
-      console.error('Supabase no se pudo inicializar: URL inválida.');
+    // --- CORRECCIÓN CRÍTICA ---
+    // Si la URL es solo "mikrotel", la convertimos en la URL válida
+    if (url && !url.startsWith('http')) {
+       url = `https://${url}.supabase.co`; 
+    }
+    // --------------------------
+
+    if (!url || url.includes('placeholder')) {
+      console.error('Supabase no se pudo inicializar: URL inválida:', url);
       return; 
     }
 
     this.supabase = createClient(url, key);
   }
+
 
   async guardarEncuesta(datos: any) {
     if (!this.supabase) throw new Error('Supabase no está inicializado');
