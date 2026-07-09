@@ -14,8 +14,11 @@
         [routerLink]="['/']" (click)="isMenuOpen = false">Inicio</li>
     
     <li class="text-gray-700 hover:text-blue-600 font-semibold cursor-pointer transition-colors" 
-        [routerLink]="['/']" fragment="planes" (click)="isMenuOpen = false">Planes</li>
-    
+    [routerLink]="['/']" 
+    [fragment]="'planes'" 
+    (click)="isMenuOpen = false">
+  Planes
+</li>
     <li class="text-gray-700 hover:text-blue-600 font-semibold cursor-pointer transition-colors" 
         [routerLink]="['/about']" (click)="isMenuOpen = false">Nosotros</li>
     <li class="text-gray-700 hover:text-blue-600 font-semibold cursor-pointer transition-colors" 
