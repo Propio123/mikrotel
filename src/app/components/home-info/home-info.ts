@@ -1,17 +1,25 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common'; // Importante para *ngFor
 
 @Component({
   selector: 'app-home-info',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './home-info.html',
-  styleUrl: './home-info.css',
+  styleUrls: ['./home-info.css']
 })
 export class HomeInfo {
-  
+  rating: number = 0; // Calificación actual del usuario
+  hoverRating: number = 0; // Para efecto visual al pasar el mouse
+  stars: number[] = [1, 2, 3, 4, 5];
+
   esHorarioLaboral(): boolean {
-    const horaActual = new Date().getHours();
-    const diaActual = new Date().getDay(); // 0 es Domingo, 6 es Sábado
-    // Abierto de Lunes a Viernes, de 9 a 17
-    return diaActual >= 1 && diaActual <= 5 && horaActual >= 9 && horaActual < 17;
+    const now = new Date();
+    const hour = now.getHours();
+    const day = now.getDay();
+    return day >= 1 && day <= 5 && hour >= 9 && hour < 17;
   }
+
+  setRating(r: number) { this.rating = r; }
+  setHover(r: number) { this.hoverRating = r; }
 }
