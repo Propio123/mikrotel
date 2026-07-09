@@ -1,0 +1,10 @@
+.cobertura-container { max-width: 800px; margin: auto; padding: 20px; font-family: sans-serif; }
+
+.search-box input { width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ddd; border-radius: 8px; }
+
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+
+.card { padding: 20px; border: 1px solid #eee; border-radius: 12px; background: #f9f9f9; text-align: center; }
+
+.badge-ok { color: green; font-weight: bold; }
+.badge-no { color: red; font-weight: bold; }

@@ -18,7 +18,9 @@ export class SupabaseService {
 
     this.supabase = createClient(url, key);
   }
-
+get client(): SupabaseClient {
+    return this.supabase;
+  }
 
 
   async guardarEncuesta(datos: any) {

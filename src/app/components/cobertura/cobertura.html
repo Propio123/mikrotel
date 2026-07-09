@@ -1,0 +1,13 @@
+<div class="cobertura-container">
+  <h2>Zonas con Cobertura</h2>
+
+  <div id="map" style="height: 400px; width: 100%; margin-bottom: 20px;"></div>
+
+  <ul *ngIf="zonas && zonas.length > 0; else noCobertura">
+    <li *ngFor="let zona of zonas">{{ zona.nombre_zona }}</li>
+  </ul>
+
+  <ng-template #noCobertura>
+    <p>Cargando zonas o sin cobertura disponible...</p>
+  </ng-template>
+</div>

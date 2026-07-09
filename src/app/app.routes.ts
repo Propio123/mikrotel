@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { About } from './components/about/about';
 import { EncuestaComponent } from './components/encuesta/encuesta';
 import { Home } from './components/home/home';
+import { CoberturaComponent } from './components/cobertura/cobertura';
 
 export const routes: Routes = [
     { path: '', component: Home }, // Asegúrate de tener esto
@@ -12,5 +13,6 @@ export const routes: Routes = [
     data: { renderMode: 'Client' }
   },
   { path: 'about', component: About },
+  { path: 'cobertura', component: CoberturaComponent },
   { path: '**', redirectTo: '' } // Redirección de seguridad
 ];

@@ -10,8 +10,10 @@ import { SocialSidebar } from "./components/social-sidebar/social-sidebar";
   selector: 'app-root',
   imports: [RouterOutlet, TopBar, Navbar, Footer, SocialSidebar],
   templateUrl: './app.html',
+
   styleUrl: './app.css'
 })
 export class App {
+  
   protected readonly title = signal('mikrotel');
 }
