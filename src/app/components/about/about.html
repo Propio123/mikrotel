@@ -7,7 +7,13 @@
         Conectamos Ibarra con tecnología de vanguardia. No solo somos internet; somos tu aliado en seguridad y telecomunicaciones integrales.
       </p>
     </div>
-
+<div class="carousel-container">
+  <div class="carousel-slide" *ngFor="let foto of fotos">
+    <div class="img-wrapper">
+      <img [src]="foto" alt="Imagen de cobertura" class="img-slide">
+    </div>
+  </div>
+</div>
     <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
       <div class="bg-blue-600 p-8 rounded-3xl text-white shadow-xl">
         <h3 class="text-2xl font-bold mb-4">Nuestra Misión</h3>

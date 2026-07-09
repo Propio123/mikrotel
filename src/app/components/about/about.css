@@ -16,3 +16,40 @@ i {
 section {
   overflow-x: hidden;
 }
+.carousel-container {
+  display: flex;
+  overflow-x: hidden; /* Ocultamos barras de scroll */
+  scroll-behavior: smooth; /* Animación suave al cambiar */
+  gap: 20px;
+  padding: 20px 0;
+  width: 100%;
+  max-width: 500px; /* Limitamos el ancho porque las fotos son verticales */
+  margin: 0 auto;   /* Centrado en la página */
+  height: 600px;    /* Ajusta según la altura de tus fotos */
+}
+
+.carousel-slide {
+  flex: 0 0 100%; /* Cada foto ocupa el 100% del contenedor visible */
+  scroll-snap-align: center;
+}
+
+.img-wrapper {
+  width: 100%;
+  height: 100%;
+  border: 4px solid #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  overflow: hidden;
+  transition: transform 0.3s ease; /* Pequeño efecto de suavizado */
+}
+
+.img-slide {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Al ser todas verticales, el cover funcionará perfecto */
+}
+
+/* Efecto Hover opcional */
+.img-wrapper:hover {
+  transform: scale(1.02);
+}

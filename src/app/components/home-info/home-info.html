@@ -1,0 +1,21 @@
+<section class="contact-section">
+  <div class="info-card">
+    <h2>MikroTel</h2>
+    
+    <div class="rating">
+      <span>★★★★★</span> <small>(4.9/5)</small>
+    </div>
+
+    <p class="status" [class.abierto]="esHorarioLaboral()">
+      {{ esHorarioLaboral() ? '● Abierto ahora (9am - 5pm)' : '○ Cerrado' }}
+    </p>
+
+    <hr>
+
+    <div class="details">
+      <p><strong>📍 Dirección:</strong> Pedro Vicente Maldonado #14-104 y Guillermina García, Ibarra, Ecuador</p>
+      <p><strong>📞 Teléfono:</strong> 098 926 8684</p>
+      <p><strong>📧 Email:</strong> mikrotel.sas@gmail.com</p>
+    </div>
+  </div>
+</section>

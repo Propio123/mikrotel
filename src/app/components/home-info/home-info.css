@@ -1,0 +1,9 @@
+.contact-section { padding: 40px 20px; background: #f8f9fa; border-radius: 20px; }
+.info-card { max-width: 500px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+.rating { color: #ffc107; font-size: 1.2rem; margin-bottom: 10px; }
+
+.status { font-weight: bold; color: #dc3545; }
+.status.abierto { color: #28a745; }
+
+.details p { margin: 10px 0; line-height: 1.6; color: #555; }
