@@ -10,8 +10,8 @@ import { Component } from '@angular/core';
 export class TopBar {
   // Definimos las redes aquí
   socialNetworks = [
-    { name: 'Facebook', icon: 'fa-brands fa-facebook', link: 'https://facebook.com/mikrotel' },
+    { name: 'Facebook', icon: 'fa-brands fa-facebook', link: 'https://www.facebook.com/Telecomunicaciones.ibarra?locale=es_LA' },
     { name: 'Instagram', icon: 'fa-brands fa-instagram', link: 'https://instagram.com/mikrotel' },
-    { name: 'WhatsApp', icon: 'fa-brands fa-whatsapp', link: 'https://wa.me/593...' }
+    { name: 'WhatsApp', icon: 'fa-brands fa-whatsapp', link: 'https://wa.me/0989268684' }
   ];
 }
