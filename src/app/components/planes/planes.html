@@ -1,26 +1,55 @@
 <section id="planes" class="py-20 bg-gray-50">
-  <div class="container mx-auto px-6 text-center">
+  <div class="container mx-auto px-6 text-center mb-16">
     <h2 class="text-4xl font-bold text-gray-900 mb-12">Nuestros Planes de Fibra</h2>
     <div class="grid md:grid-cols-3 gap-8">
-      <div *ngFor="let plan of planes" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-blue-500 transition-all duration-300">
+      <div *ngFor="let plan of planes" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
         <h3 class="text-xl font-bold text-gray-700">{{ plan.nombre }}</h3>
         <p class="text-5xl font-bold text-blue-600 my-6">{{ plan.velocidad }}</p>
-        <p class="text-2xl font-bold text-gray-900 mb-6">${{ plan.precio }} <span class="text-sm font-normal text-gray-500">/mes</span></p>
-        <button class="w-full py-3 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700">Contratar</button>
+        <p class="text-2xl font-bold text-gray-900 mb-6">${{ plan.precio }}</p>
+        <button (click)="isContratarOpen = true" class="w-full py-3 rounded-xl bg-blue-600 text-white font-semibold">Contratar</button>
       </div>
     </div>
-    
   </div>
+
   <div class="container mx-auto px-6 text-center">
     <h2 class="text-4xl font-bold text-gray-900 mb-12">Nuestros Planes de Antena</h2>
     <div class="grid md:grid-cols-3 gap-8">
-      <div *ngFor="let plan of planesantena" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:border-blue-500 transition-all duration-300">
+      <div *ngFor="let plan of planesantena" class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
         <h3 class="text-xl font-bold text-gray-700">{{ plan.nombre }}</h3>
         <p class="text-5xl font-bold text-blue-600 my-6">{{ plan.velocidad }}</p>
-        <p class="text-2xl font-bold text-gray-900 mb-6">${{ plan.precio }} <span class="text-sm font-normal text-gray-500">/mes</span></p>
-        <button class="w-full py-3 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700">Contratar</button>
+        <p class="text-2xl font-bold text-gray-900 mb-6">${{ plan.precio }}</p>
+        <button (click)="isContratarOpen = true" class="w-full py-3 rounded-xl bg-blue-600 text-white font-semibold">Contratar</button>
       </div>
     </div>
-    
   </div>
+
+  <div *ngIf="isContratarOpen" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+     <div class="bg-white p-8 rounded-2xl w-full max-w-sm shadow-2xl">
+        <h2 class="text-xl font-bold mb-4 text-gray-800">¡Contrata tu Plan!</h2>
+        <button (click)="isContratarOpen = false">Cancelar</button>
+     </div>
+  </div>
+</section>
+<section id="planes" class="py-20 bg-gray-50">
+  
+  <div *ngIf="isContratarOpen" class="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+    <div class="bg-white p-8 rounded-2xl w-full max-w-sm shadow-2xl">
+      <h2 class="text-xl font-bold mb-4 text-gray-800">¡Contrata tu Plan!</h2>
+      <p class="text-sm text-gray-500 mb-6">Ingresa tus datos y te contactaremos enseguida por WhatsApp.</p>
+      
+      <div class="space-y-4">
+        <input [(ngModel)]="cliente.nombre" placeholder="Nombre completo" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+        <input [(ngModel)]="cliente.direccion" placeholder="Dirección de instalación" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+        <input [(ngModel)]="cliente.telefono" type="tel" placeholder="Tu número de teléfono" class="w-full p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+      </div>
+      
+      <div class="flex gap-3 mt-8">
+        <button (click)="isContratarOpen = false" class="flex-1 py-3 text-gray-600 hover:bg-gray-100 rounded-lg transition-colors">Cancelar</button>
+        <button (click)="enviarContratacion()" class="flex-1 bg-green-500 text-white py-3 rounded-lg font-bold hover:bg-green-600 transition-colors">
+          Enviar WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+  
 </section>

@@ -1,12 +1,37 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-planes',
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './planes.html'
 })
 export class Planes {
+  isContratarOpen = false;
+  
+  // Datos del cliente
+  cliente = {
+    nombre: '',
+    direccion: '',
+    telefono: ''
+  };
+
+  enviarContratacion() {
+    const numeroEmpresa = '593989268684';
+    const mensaje = `Hola, quiero contratar un plan. 
+    Nombre: ${this.cliente.nombre}
+    Dirección: ${this.cliente.direccion}
+    Teléfono: ${this.cliente.telefono}`;
+    
+    const url = `https://wa.me/${numeroEmpresa}?text=${encodeURIComponent(mensaje)}`;
+    
+    window.open(url, '_blank');
+    this.isContratarOpen = false; // Cerramos el modal
+    
+    // Limpiar campos después de enviar
+    this.cliente = { nombre: '', direccion: '', telefono: '' };
+  }
   planes = [
     { nombre: 'Básico-FO', velocidad: '250 Mbps', precio: '20.54' },
     { nombre: 'Home-FO', velocidad: '350 Mbps', precio: '25.67' },
