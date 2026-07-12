@@ -8,12 +8,13 @@ import { CommonModule } from '@angular/common';
   selector: 'app-cobertura',
   imports: [CommonModule],
   templateUrl: './cobertura.html',
+  styleUrl: './cobertura.css'
 })
 export class CoberturaComponent implements AfterViewInit {
   private map!: L.Map;
   private http = inject(HttpClient); // Forma moderna de inyectar
   zonas: any[] = [];
-
+  isModalOpen = false;
   constructor(private coberturaService: CoberturaService) {}
 
   async ngAfterViewInit() {

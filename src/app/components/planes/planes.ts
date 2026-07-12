@@ -5,7 +5,8 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-planes',
   imports: [CommonModule, FormsModule],
-  templateUrl: './planes.html'
+  templateUrl: './planes.html',
+  styleUrl: './planes.css'
 })
 export class Planes {
   isContratarOpen = false;
@@ -33,11 +34,11 @@ export class Planes {
     this.cliente = { nombre: '', direccion: '', telefono: '' };
   }
   planes = [
-    { nombre: 'Básico-FO', velocidad: '250 Mbps', precio: '20.54' },
-    { nombre: 'Home-FO', velocidad: '350 Mbps', precio: '25.67' },
-    { nombre: 'HOME-FO', velocidad: '450 Mbps', precio: '33.37' },
-    { nombre: 'Avanzado-FO', velocidad: '700 Mbps', precio: '38.91' }
-
+    { nombre: 'Mikero-Started', velocidad: '250 Mbps', precio: '20.54' },
+    { nombre: 'Mikro-Student', velocidad: '350 Mbps', precio: '25.67' },
+    { nombre: 'Mikro-Xtreme', velocidad: '450 Mbps', precio: '33.37' },
+    { nombre: 'Mikro-Ultra', velocidad: '700 Mbps', precio: '38.91' },
+    { nombre: 'Mikro-Top Speed', velocidad: '1Gbps', precio: '54.31' }
   ];
    planesantena= [
     

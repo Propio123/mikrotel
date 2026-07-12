@@ -8,6 +8,24 @@
   </ul>
 
   <ng-template #noCobertura>
-    <p>Cargando zonas o sin cobertura disponible...</p>
-  </ng-template>
+  <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-lg text-center my-8">
+    <h3 class="text-xl font-bold text-blue-900 mb-2">¡Conectamos todo Imbabura!</h3>
+    <p class="text-gray-700 max-w-2xl mx-auto mb-4">
+      Estamos expandiendo nuestra red de fibra óptica de alta velocidad. Actualmente contamos con presencia activa en:
+    </p>
+    <div class="flex flex-wrap justify-center gap-2">
+      <span class="bg-white px-3 py-1 rounded-full text-sm font-semibold text-blue-700 shadow-sm border border-blue-100">Otavalo</span>
+      <span class="bg-white px-3 py-1 rounded-full text-sm font-semibold text-blue-700 shadow-sm border border-blue-100">Atuntaqui</span>
+      <span class="bg-white px-3 py-1 rounded-full text-sm font-semibold text-blue-700 shadow-sm border border-blue-100">Cotacachi</span>
+      <span class="bg-white px-3 py-1 rounded-full text-sm font-semibold text-blue-700 shadow-sm border border-blue-100">Urcuquí</span>
+    </div>
+    <p class="text-sm text-gray-500 mt-4 italic">
+      ¿Tu zona no está en la lista? Contáctanos y recibe asesoría personalizada.
+    </p>
+  </div>
+</ng-template>
+<button (click)="isModalOpen = true" 
+        class="mt-4 bg-blue-600 text-white px-6 py-2 rounded-full text-sm hover:bg-blue-700 transition-colors">
+  Consultar mi sector
+</button>
 </div>
