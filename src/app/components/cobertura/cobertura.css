@@ -8,3 +8,18 @@
 
 .badge-ok { color: green; font-weight: bold; }
 .badge-no { color: red; font-weight: bold; }
+#map {
+  /* En lugar de 600px fijos, usamos vh para que se adapte al tamaño de pantalla */
+  height: 400px; /* Tamaño ideal en escritorio */
+  width: 100%;
+  border-radius: 1rem;
+  z-index: 1;    /* Asegura que el mapa esté detrás del navbar */
+  margin-bottom: 2rem;
+}
+
+/* Ajuste específico para móviles */
+@media (max-width: 768px) {
+  #map {
+    height: 300px; /* Más compacto en móviles para no tapar el contenido */
+  }
+}
