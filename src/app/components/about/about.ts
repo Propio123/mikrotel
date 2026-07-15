@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './about.css',
 })
 export class About {
-  fotos = ['assets/foto1.jpeg', 'assets/foto2.jpeg', 'assets/foto3.jpeg'];
+  fotos = ['assets/foto1.jpeg'];
   currentIndex = 0;
   private intervalId: any;
 

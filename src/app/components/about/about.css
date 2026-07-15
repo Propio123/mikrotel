@@ -1,36 +1,13 @@
-/* Añade un toque de elegancia a las tarjetas */
-.shadow-sm {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.hover\:shadow-xl:hover {
-  transform: translateY(-10px);
-}
-
-/* Ajuste para que los iconos tengan consistencia */
-i {
-  display: block;
-}
-
-/* Asegura que el contenedor no tenga scroll horizontal en móviles */
-section {
-  overflow-x: hidden;
-}
 .carousel-container {
   display: flex;
-  overflow-x: hidden; /* Ocultamos barras de scroll */
-  scroll-behavior: smooth; /* Animación suave al cambiar */
+  overflow-x: hidden;
+  scroll-behavior: smooth;
   gap: 20px;
   padding: 20px 0;
   width: 100%;
-  max-width: 500px; /* Limitamos el ancho porque las fotos son verticales */
-  margin: 0 auto;   /* Centrado en la página */
-  height: 600px;    /* Ajusta según la altura de tus fotos */
-}
-
-.carousel-slide {
-  flex: 0 0 100%; /* Cada foto ocupa el 100% del contenedor visible */
-  scroll-snap-align: center;
+  max-width: 400px; /* Mantén este ancho */
+  margin: 0 auto;
+  height: 600px; /* Altura sugerida para que se vea bien la foto */
 }
 
 .img-wrapper {
@@ -40,16 +17,16 @@ section {
   border-radius: 20px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
   overflow: hidden;
-  transition: transform 0.3s ease; /* Pequeño efecto de suavizado */
+  background-color: #f3f4f6; /* Color de fondo elegante si sobran espacios */
+  display: flex;             /* Centra la imagen si sobra espacio */
+  align-items: center;
+  justify-content: center;
 }
 
 .img-slide {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Al ser todas verticales, el cover funcionará perfecto */
-}
-
-/* Efecto Hover opcional */
-.img-wrapper:hover {
-  transform: scale(1.02);
+  /* IMPORTANTE: contain hace que la imagen se ajuste 
+     al contenedor sin recortar ni estirar */
+  object-fit: contain; 
 }

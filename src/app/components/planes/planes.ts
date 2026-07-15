@@ -40,12 +40,5 @@ export class Planes {
     { nombre: 'Mikro-Ultra', velocidad: '700 Mbps', precio: '38.91' },
     { nombre: 'Mikro-Top Speed', velocidad: '1Gbps', precio: '54.31' }
   ];
-   planesantena= [
-    
-    { nombre: 'Básico-WRL', velocidad: '30 Mbps', precio: '20.54' },
-    { nombre: 'Home-WRL', velocidad: '40 Mbps', precio: '24.15' },
-    { nombre: 'HOME-WRL', velocidad: '50 Mbps', precio: '25.67' },
-    { nombre: 'Avanzado-WRL', velocidad: '60 Mbps', precio: '30.80' },
-
-  ];
+  
 }
